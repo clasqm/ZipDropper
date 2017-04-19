@@ -1,0 +1,6 @@
+sub Collectem()
+	open #1,tempfile$, "a"
+	print #1 mid$(msg$(everyCommand),19)
+	close #1
+end sub
+

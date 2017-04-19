@@ -1,0 +1,21 @@
+sub Ask2Leave()
+	local getout
+	getout= Alert "Do you want to Quit ZipDropper or\njust Clear the collection?","Quit", "Clear","Cancel","Warning"
+	switch getout
+		case 1
+			across=Window Get "MainWindow", "Position-X"
+			updown=Window Get "MainWindow", "Position-Y"
+			open "/boot/home/config/settings/ZipDropper.settings" for writing as #1
+			print #1 across
+			print #1 updown
+			close #1
+			CloseWindow()
+			break
+		case 2
+			KillTemp()
+			break
+		default
+			break
+	end switch
+end sub
+

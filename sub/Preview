@@ -1,0 +1,31 @@
+sub Preview(fromwhere$)
+	local getmeouttahere, counter, total, thestring$, aline$, whereismyfile$
+		whereismyfile$=system$("if test -e " + tempfile$ + "; then echo yeah; else echo nope;fi")
+
+	 if left$(whereismyfile$,1)="n" then
+		alert "No collection found. Please drop some files.", "OK", "none"
+	else
+		total = val(system$("wc -l " + tempfile$))
+		if total > 15 then
+			counter = 15
+		else
+			counter = total
+		endif
+		thestring$ = "   FILES:\n========\n (showing first 15 entries only)\n"
+		open tempfile$ for reading as #1
+		for f = 1 to counter
+			line input #1 aline$
+			thestring$= thestring$ + aline$ + "\n"
+		next f
+		close #1
+		if total > counter thestring$ = thestring$ + "and " + str$(total-counter) + " more.\n"
+		thestring$ = thestring$ + "\nContinue?"
+		if fromwhere$ = "leftclick" then
+			getmeouttahere= Alert thestring$,"","Yes","", "none"
+		else if fromwhere$ = "middleclick" 
+			getmeouttahere= Alert thestring$,"No!","Yes","", "none"
+		endif
+	endif
+	return getmeouttahere
+end sub
+

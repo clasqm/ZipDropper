@@ -1,0 +1,23 @@
+sub Gozipem()
+	local dothis$, filename$, preview, getmeouttahere,whereismyfile$
+	whereismyfile$=system$("if test -e " + tempfile$ + "; then echo yeah; else echo nope;fi")
+	if left$(whereismyfile$,1)="n" then
+		alert "No collection found. Please drop some files.", "OK", "none"
+		return
+	else
+		preview = Alert "Preview files to zip up?","Yes","No", "","Warning"
+		if preview = 1 getmeouttahere=Preview("middleclick")
+		if getmeouttahere=1 return
+		filename$= filepanel "Save-File", "Zipfile to freshen/create?", "/boot/home/Desktop", "newzip.zip"
+		if filename$="" return //User pressed cancel
+		if lower$(right$(filename$,4))<>".zip" filename$ = filename$ + ".zip"
+		filename$= "\'" + filename$ + "\'"
+		dothis$ = "cat " + tempfile$ + " | zip -q9r@ " + filename$
+		system(dothis$)
+		dothis$="The files have been copied into\n" + mid$(filename$,2,len(filename$)-2)
+		Alert dothis$,"OK", "Info"
+		KillTemp()
+		Alert "Collection cleared.\nDrop new files to continue.", "OK", "none"
+	endif
+end sub
+

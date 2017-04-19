@@ -1,0 +1,11 @@
+#!/bin/sh
+cd /boot/home/projects/zipdropper/PackagingFolder
+package create -b zipdropper_0.3-3_gcc2.hpkg
+sleep 0.5
+package add zipdropper_0.3-3_gcc2.hpkg data apps documentation
+sleep 0.5
+addattr BeShare:Info "A zip utility with a minimalist interface" zipdropper_0.3-3_gcc2.hpkg
+becopy zipdropper_0.3-3_gcc2.hpkg "/Storage/Haiku/My ports"
+mv zipdropper_0.3-3_gcc2.hpkg /boot/home/projects/repo
+
+sync

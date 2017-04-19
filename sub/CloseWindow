@@ -1,0 +1,7 @@
+sub CloseWindow()
+	//Close down the main window
+	KillTemp()
+	window close "MainWindow"
+	return
+end sub
+

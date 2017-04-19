@@ -1,0 +1,23 @@
+sub OpenWindow()
+window open across,updown to acrossend, updownend, "MainWindow", "ZipDropper"
+	window set "MainWindow", "look", "modal"
+	window set "MainWindow", "Flags", "Accept-First-Click"
+	window set "MainWindow", "Flags", "Not-Resizable"
+	Window set "MainWindow", "Workspace", "All"
+	view 1,1 to acrossend,40, "DropHere", "MainWindow"
+	redc=255: greenc=240: bluec=160
+	for f = 0 to 39
+		draw set "highcolor", redc, greenc, bluec, "DropHere"
+		draw line 0, f to acrossend,f, "DropHere"
+		greenc=greenc-1: bluec = bluec -4
+	next f
+	draw set "highcolor", 0,0,0, "DropHere"
+	Draw Text 30,17, "Drop files to be", "DropHere"
+	Draw Text 30,32, "zipped up here", "DropHere"
+	Tooltip "DropHere", "Drop files here to zip a collection,\nor right-click to Quit this program."
+	view Dropzone "DropHere"
+	button 0,41 to 50, 70, "Viewbutton", "View", "MainWindow" 
+	button 51,41 to 100, 70, "Zipbutton", "Zip", "MainWindow" 
+	button 101,41 to 150, 70, "Exitbutton", "Exit", "MainWindow" 
+end sub
+

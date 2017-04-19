@@ -1,0 +1,16 @@
+ZipDropper V0.2
+A zip utility with an extremely minimalist interface.
+By Michel Clasquin-Johnson
+Public Domain Software 2009, 2015
+
+Well, what can I say? Run it and follow the tooltip :-)
+
+To move ZD, you grab it by the edge. It's a bit tricky but it can be done. Quit ZD (see below) and it will remember its position.
+
+Drag files and folders onto ZD to start your collection. You can add as many as you like. Folders will be zipped with all their contents, recursively. Unlike Zip-o-Matic, ZipDropper always zips  the whole pathname, from /boot onwards. This makes it better suited for making quick backups that can be restored by unzipping them back to /boot.
+
+When you are ready to zip the collection, middle-click on ZD. Sorry, two-button mouse owners (both of you?). If you select an existing zip file, it will be freshened and any new files will be added to it. After the files have been zipped, the current collection of files-to-be-zipped is cleared and you can start on a new one.
+
+To quit, right-click on ZD. You will be asked if you want to quit or to clear the current collection.
+
+ZD is set to appear on all Workspaces but not in the Deskbar. Get it in place, put a link to it in /boot/home/config/boot/launch and you won't believe it's not a replicant :-)

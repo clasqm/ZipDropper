@@ -1,0 +1,46 @@
+
+//Yabadabbadoo notification
+########DO NOT RENAME THIS FILE!########
+//Yabadabbadoo needs it to function.
+
+//Main Message Loop
+dim msg$(1)
+while(not leavingLoop)
+	nCommands = token(message$, msg$(), "|")
+	for everyCommand = 1 to nCommands
+		switch(msg$(everyCommand))
+		case "_QuitRequested":
+			case "MainWindow:_QuitRequested":
+			case "Exitbutton"
+				Ask2Leave()
+				break
+			case "Viewbutton"
+				Preview("leftclick")
+				break
+			case "Zipbutton"
+				Gozipem()
+			default
+				break
+		end switch
+		
+			if(DEBUG and msg$(everyCommand)<>"") print msg$(everyCommand)
+			if left$(msg$(everyCommand),18) ="DropHere:_Dropped:" Collectem()	
+	
+		next everyCommand
+
+	mouse$ = MOUSE MESSAGE$ ("DropHere")
+	if (DEBUG) print mouse$ 
+	num = token(mouse$, w$(), ":")
+	if (DEBUG) then
+		for f = 1 to 5
+			print w$(f)
+		next f
+	endif
+	if w$(5)="1" Ask2Leave()
+	mouse$ =""
+wend
+
+CloseWindow()
+
+end
+

@@ -1,0 +1,56 @@
+#!yab
+################################
+############# Prologue #############
+################################
+
+//ZipDropper v0.3
+//By Michel Clasquin-Johnson
+//A zip utility with an extremely minimalist interface
+//Public Domain software 2009
+
+ 
+//*************************
+//*****Global Variables****
+//*************************
+ 
+## Technically, yab does not require you to declare global variables,
+##It just is a really, really good idea to do it anyway.
+// set DEBUG = 1 to print out all messages on the console
+DEBUG = 0
+//change this to DEBUG = 0 when you are ready to bind the program for distribution
+ 
+tempfile$ = system$("finddir B_COMMON_TEMP_DIRECTORY") 
+tempfile$ = left$(tempfile$, len(tempfile$) -1) //strip off trailing newline
+tempfile$ = tempfile$ +"/ZipDropper.tmp" 
+close #1
+	
+dim w$(5)
+##########################
+######Preliminary Commands#####
+##########################
+
+## Commands to run before the Main Loop come here.
+## e.g. setting up a window with a menu.
+
+//see if a settings file exist. If so, read positions
+open #1,"/boot/home/config/settings/ZipDropper.settings", "a": close #1 //create the file if it does not exist
+open "/boot/home/config/settings/ZipDropper.settings" for reading as #1
+line input #1 across
+line input #1 updown
+close #1
+if across = 0 or updown = 0 then //ie if the settings file was empty
+	across = 100
+	updown = 100
+endif
+acrossend = across + 150
+updownend = updown + 70
+ 
+ 
+ 
+OpenWindow()
+
+ 
+ 
+ 
+#######End of Prologue#######
+
