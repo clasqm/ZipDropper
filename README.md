@@ -1,7 +1,11 @@
-ZipDropper V0.3
+# ZipDropper V0.3
+
 A zip utility with a minimalist interface.
+
 By Michel Clasquin-Johnson
+
 Public Domain Software 2009, 2015
+
 written for Haiku in yab, using the Yabadabbadoo IDE
 
 Version 0.3 gets a new, more conventional interface. The border is thicker to make it easier to move it around, and there are now three buttons rather than using only mouseclicks.
@@ -19,3 +23,5 @@ When you are ready to zip the collection, click on the Zip button. Sorry, two-bu
 To quit, right-click on the yellow dropzone or click the Exit button. You will be asked if you want to quit or to clear the current collection.
 
 ZD is set to appear on all Workspaces but not in the Deskbar. It remembers its position. Install it, put a link to it in /boot/home/config/boot/launch and you won't believe it's not a replicant :-)
+
+Get it here: https://github.com/clasqm/ZipDropper
