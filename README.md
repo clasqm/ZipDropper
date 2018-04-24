@@ -8,6 +8,8 @@ Public Domain Software 2009, 2015
 
 written for Haiku in yab, using the Yabadabbadoo IDE
 
+![ZipDropper](zipdropper.png)
+
 Version 0.3 gets a new, more conventional interface. The border is thicker to make it easier to move it around, and there are now three buttons rather than using only mouseclicks.
 
 Well, what can I say? Run it and follow the tooltip :-)
